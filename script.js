@@ -193,9 +193,16 @@ playBtn.addEventListener("click", () => {
   if (music.paused) {
     music.play();
     playBtn.textContent = "⏸️ Toca para pausar";
+    playBtn.classList.add("playing");
   } else {
     music.pause();
     playBtn.textContent = "🎵 Toca para escuchar";
+    playBtn.classList.remove("playing");
   }
+});
+
+music.addEventListener("ended", () => {
+  playBtn.textContent = "🎵 Toca para escuchar";
+  playBtn.classList.remove("playing");
 });
 
