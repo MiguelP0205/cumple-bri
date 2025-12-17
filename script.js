@@ -191,5 +191,5 @@ const music = document.getElementById("music");
 
 playBtn.addEventListener("click", () => {
   music.play();
-  playBtn.style.display = "none"; // ocultar botón
+  //playBtn.style.display = "none"; // ocultar botón
 });
