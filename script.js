@@ -67,7 +67,7 @@ function playMiniCountdown() {
   try {
     bgMusic.play().catch(() => {});
     let vol = 0;
-    const TARGET_VOLUME = 0.28; // 🔈 volumen final suave y elegante
+    const TARGET_VOLUME = 0.25; // 🔈 volumen final suave y elegante
     const fade = setInterval(() => {
       if (vol < TARGET_VOLUME) {
         vol += 0.003;           // subida mucho más gradual
@@ -190,6 +190,12 @@ const playBtn = document.getElementById("playBtn");
 const music = document.getElementById("music");
 
 playBtn.addEventListener("click", () => {
-  music.play();
-  //playBtn.style.display = "none"; // ocultar botón
+  if (music.paused) {
+    music.play();
+    playBtn.textContent = "⏸️ Toca para pausar";
+  } else {
+    music.pause();
+    playBtn.textContent = "🎵 Toca para escuchar";
+  }
 });
+
