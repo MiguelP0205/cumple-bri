@@ -250,9 +250,5 @@ h1 {
 
 .playing {
   animation: pulse 1.6s infinite;
-}
-
-.playing {
-  animation: pulse 1.6s infinite;
   box-shadow: 0 0 20px rgba(255, 111, 174, 0.8);
 }
