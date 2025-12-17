@@ -21,6 +21,9 @@ const bgMusic = document.getElementById('music');
 bgMusic.loop = true;
 bgMusic.volume = 0;
 
+const scrollMessage = document.querySelector(".scroll-message");
+
+
 // ===============================
 // ESTADO
 // ===============================
@@ -60,7 +63,7 @@ function playMiniCountdown() {
   if (miniCountdownStarted) return;
   miniCountdownStarted = true;
 
-  let n = 10;
+  let n = 3;
   miniNumber.textContent = n;
 
   // Música fade in
@@ -99,6 +102,10 @@ function playMiniCountdown() {
 
         // 💌 ABRIR SOBRE
         if (envelope) envelope.classList.add('open');
+
+        if (scrollMessage) {
+          scrollMessage.scrollTop = 0;
+        }
 
         // Partículas
         launchParticles(70);
