@@ -17,7 +17,7 @@ const miniNumber = document.getElementById('mini');
 
 const envelope = document.querySelector('.envelope');
 
-const bgMusic = document.getElementById('bg-music');
+const bgMusic = document.getElementById('music');
 bgMusic.loop = true;
 bgMusic.volume = 0;
 
