@@ -1,7 +1,7 @@
 // ===============================
 // CONFIGURACIÓN FECHA OBJETIVO
 // ===============================
-const target = new Date('2025-10-10T13:57:00'); // ajusta aquí
+const target = new Date('2025-12-17T18:07:00'); // ajusta aquí
 
 // ===============================
 // ELEMENTOS
@@ -20,8 +20,6 @@ const envelope = document.querySelector('.envelope');
 const bgMusic = document.getElementById('music');
 bgMusic.loop = true;
 bgMusic.volume = 0;
-
-const scrollMessage = document.querySelector(".scroll-message");
 
 
 // ===============================
@@ -57,7 +55,7 @@ function updateCountdown() {
 }
 
 // ===============================
-// MINI COUNTDOWN (10 → 0)
+// MINI COUNTDOWN (3 → 0)
 // ===============================
 function playMiniCountdown() {
   if (miniCountdownStarted) return;
@@ -178,7 +176,7 @@ window.addEventListener('load', () => {
 // ===============================
 const titles = [
   " - Cumple de Bri 👑",
-  " - Mi doc preciosa 🩺",
+  " - Doc preciosa 🩺",
   " - Feliz Cumple, Bri 🎂",
   " - Ojitos bonitos 👀",
   " - Niña bonita 😍"
