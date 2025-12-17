@@ -200,9 +200,3 @@ playBtn.addEventListener("click", () => {
     playBtn.classList.remove("playing");
   }
 });
-
-music.addEventListener("ended", () => {
-  playBtn.textContent = "🎵 Toca para escuchar";
-  playBtn.classList.remove("playing");
-});
-
