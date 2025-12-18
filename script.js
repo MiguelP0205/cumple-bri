@@ -75,7 +75,6 @@ function playMiniCountdown() {
         bgMusic.volume = Math.min(vol, TARGET_VOLUME);
       } else {
         clearInterval(fade);
-        bgMusic.volume = TARGET_VOLUME;
       }
     }, 150);
   } catch (e) {}
