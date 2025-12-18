@@ -1,7 +1,7 @@
 // ===============================
 // CONFIGURACIÓN FECHA OBJETIVO
 // ===============================
-const target = new Date('2025-12-17T23:09:00'); // ajusta aquí
+const target = new Date('2025-12-18T14:30:00'); // ajusta aquí
 
 // ===============================
 // ELEMENTOS
@@ -61,14 +61,18 @@ function playMiniCountdown() {
   if (miniCountdownStarted) return;
   miniCountdownStarted = true;
 
+  // Agregamos el pulse al sobre
+  if (envelope) envelope.classList.add("pulse");
+
   let n = 3;
   miniNumber.textContent = n;
 
   // Música fade in
   try {
-    bgMusic.play().catch(() => {});
-    let vol = 0;
-    const TARGET_VOLUME = 0.25; // 🔈 volumen final suave y elegante
+    if (music.paused) {music.play().catch(() => {});
+    let vol = music.volume;
+    playBtn.textContent = "⏸️ Toca para pausar";
+    const TARGET_VOLUME = 0.22; // 🔈 volumen final suave y elegante
     const fade = setInterval(() => {
       if (vol < TARGET_VOLUME) {
         vol += 0.003;           // subida mucho más gradual
@@ -76,7 +80,7 @@ function playMiniCountdown() {
       } else {
         clearInterval(fade);
       }
-    }, 150);
+    }, 150);}
   } catch (e) {}
 
   const step = setInterval(() => {
@@ -97,8 +101,11 @@ function playMiniCountdown() {
       setTimeout(() => {
         miniSection.classList.add('hidden');
 
-        // 💌 ABRIR SOBRE
-        if (envelope) envelope.classList.add('open');
+        // 💌 ABRIR SOBRE Y QUITAMOS EL PULSE
+        if (envelope) {
+          envelope.classList.remove("pulse");
+          envelope.classList.add('open');
+        }
 
         if (scrollMessage) {
           scrollMessage.scrollTop = 0;
@@ -195,12 +202,25 @@ const music = document.getElementById("music");
 
 playBtn.addEventListener("click", () => {
   if (music.paused) {
-    music.play();
+    music.play().catch(() => {}); // reproducir de inmediato
     playBtn.textContent = "⏸️ Toca para pausar";
     playBtn.classList.add("playing");
+
+    // Fade-in gradual si no ha llegado al volumen final
+    let vol = music.volume;
+    const TARGET_VOLUME = 0.22;
+    const fade = setInterval(() => {
+      if (vol < TARGET_VOLUME) {
+        vol += 0.003;
+        music.volume = Math.min(vol, TARGET_VOLUME);
+      } else {
+        clearInterval(fade);
+      }
+    }, 150);
   } else {
     music.pause();
     playBtn.textContent = "🎵 Toca para escuchar";
     playBtn.classList.remove("playing");
   }
 });
+

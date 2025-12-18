@@ -271,6 +271,24 @@ h1 {
   }
 }
 
+@keyframes envelope-breath {
+  0%   { transform: scale(1); }
+  13%  { transform : scale(1.02);}
+  25%  { transform: scale(1.04); }
+  38%  { transform : scale(1.06);}
+  50%  { transform: scale(1.08); }
+  63%  { transform : scale(1.1);}
+  75%  { transform: scale(1.12); }
+  88%  { transform : scale(1.14);}
+  100% { transform: scale(1.16); }
+}
+
+.envelope.pulse {
+  animation: envelope-breath 3.6s infinite;
+  transform-origin: center center;
+}
+
+
 .playing {
   animation: pulse 1.6s infinite;
   box-shadow: 0 0 20px rgba(255, 111, 174, 0.8);
