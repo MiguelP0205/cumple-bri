@@ -1,8 +1,7 @@
 // ===============================
 // CONFIGURACIÓN FECHA OBJETIVO
 // ===============================
-//const target = new Date('2025-12-18T14:30:00'); // ajusta aquí
-const target = new Date('2025-12-18T02:49:00'); // ajusta aquí
+const target = new Date('2025-12-18T14:30:00'); // ajusta aquí
 
 // ===============================
 // ELEMENTOS
